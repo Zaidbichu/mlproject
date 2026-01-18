@@ -1,2 +1,6 @@
 pandas
 seaborn
+matplotlib
+seaborn
+numpy
+
