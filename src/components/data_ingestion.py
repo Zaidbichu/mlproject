@@ -7,6 +7,8 @@ from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
 from src.components.data_transformation import Data_transformation
 from src.components.data_transformation import Datatransformationconfig
+from src.components.model_training import modeltrainerconfig
+from src.components.model_training import modeltrainer
 @dataclass 
 class Dataingestionconfig:
     train_data_path:str=os.path.join('articraft','train.csv')
@@ -38,3 +40,5 @@ if __name__=="__main__":
     train_data,test_data=obj.initiate_data_ingestion()
     data_transformation=Data_transformation()
     train_arr,test_arr,_=data_transformation.initiate_data_transformation(train_data,test_data)
+    model_trainer=modeltrainer()
+    modeltrainer.initiated_model_trainer(train_arr,test_arr)
