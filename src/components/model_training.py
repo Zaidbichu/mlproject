@@ -19,7 +19,7 @@ class modeltrainerconfig:
 class modeltrainer:
     def __init__(self):
         self.model_tainer_config=modeltrainerconfig()
-    def initiated_model_trainer(self,train_array,test_array):
+    def initiate_model_trainer(self,train_array,test_array):
         try:
             logging.info('split training and test input data')
             x_train,y_train,x_test,y_test=(
@@ -29,13 +29,13 @@ class modeltrainer:
                 test_array[:,-1]
             )
             models={
-                'linear_model':LinearRegression(),
-                'random_forest_regressor':RandomForestRegressor(),
-                "decision tree ":DecisionTreeRegressor(),
+                'Linear Regression':LinearRegression(),
+                "Random Forest":RandomForestRegressor(),
+                "Decision Tree":DecisionTreeRegressor(),
                 'gradient boosting':GradientBoostingRegressor(),
-                'xgbregressor':XGBRegressor(),
-                'catboost regressor':CatBoostRegressor(),
-                'adaboost regressor':AdaBoostRegressor()
+                'XGBRegressor':XGBRegressor(),
+                'CatBoosting Regressor':CatBoostRegressor(),
+                'AdaBoost Regressor':AdaBoostRegressor(),
             }
             params={
                 "Decision Tree": {
@@ -43,13 +43,13 @@ class modeltrainer:
                     # 'splitter':['best','random'],
                     # 'max_features':['sqrt','log2'],
                 },
-                "Random Forest":{
+               "Random Forest":{
                     # 'criterion':['squared_error', 'friedman_mse', 'absolute_error', 'poisson'],
                 
                     # 'max_features':['sqrt','log2',None],
                     'n_estimators': [8,16,32,64,128,256]
                 },
-                "Gradient Boosting":{
+                "gradient boosting":{
                     # 'loss':['squared_error', 'huber', 'absolute_error', 'quantile'],
                     'learning_rate':[.1,.01,.05,.001],
                     'subsample':[0.6,0.7,0.75,0.8,0.85,0.9],
@@ -90,8 +90,8 @@ class modeltrainer:
                 file_path=self.model_tainer_config.trainer_model_file_path,
                 obj=best_model
             )
-            y_pred=best_model.predict(x_test)
-            r2_square=r2_score(y_test,y_pred)
+            predicted=best_model.predict(x_test)
+            r2_square=r2_score(y_test,predicted)
             return r2_square
         except Exception as e:
             raise custom_exception(e,sys)
