@@ -5,6 +5,8 @@ from src.exception import custom_exception
 from src.logger import logging
 from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
+from src.components.data_transformation import Data_transformation
+from src.components.data_transformation import Datatransformationconfig
 @dataclass 
 class Dataingestionconfig:
     train_data_path:str=os.path.join('articraft','train.csv')
@@ -33,4 +35,6 @@ class dataingestion:
             raise custom_exception(e,sys)
 if __name__=="__main__":
     obj=dataingestion()
-    obj.initiate_data_ingestion()
+    train_data,test_data=obj.initiate_data_ingestion()
+    data_transformation=Data_transformation()
+    train_arr,test_arr,_=data_transformation.initiate_data_transformation(train_data,test_data)

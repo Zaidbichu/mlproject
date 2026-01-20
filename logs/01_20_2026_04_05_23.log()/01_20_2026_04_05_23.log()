@@ -1,0 +1,8 @@
+[2026-01-20 04:05:24,906] 19 root -INFO-entered the data ingestion method or components
+[2026-01-20 04:05:24,908] 22 root -INFO-read the dataset as dataframe
+[2026-01-20 04:05:24,913] 25 root -INFO-train and test split initaiated
+[2026-01-20 04:05:24,928] 29 root -INFO-ingestion of the data has completed
+[2026-01-20 04:05:24,980] 56 root -INFO-train adn test data initiated
+[2026-01-20 04:05:24,980] 57 root -INFO-obtaining preprocessing object
+[2026-01-20 04:05:24,980] 42 root -INFO-categorical columns:['gender', 'race_ethnicity', 'parental_level_of_education', 'lunch', 'test_preparatiion_course']
+[2026-01-20 04:05:25,011] 43 root -INFO-numerical data:['writing_score', 'reading_score']
